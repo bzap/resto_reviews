@@ -34,69 +34,53 @@
         
       </nav>
 
-      <div class="form-container"> 
+      <div class="submit-form-container"> 
         <div class="d-flex mt-5 justify-content-center">
             <div class="col-md-8 px-0">
                 <div class="card shadow-lg p-3 mb-5 bg-white rounded-lg">
+                    <h4 class="align-self-center pt-3 pb-4"><Strong> Submit a new location: </Strong></h4>
                     <form>
-                        <div class="form-row justify-content-center">
+                        <div class="row justify-content-center text-center">
                             <div class="form-group col-auto">
-                                <label for="username">Username</label>
-                                <input type="username" class="form-control" id="username" placeholder="Email">
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                    <div class="input-group-text">@</div>
-                                    </div>
-                                    <input type="text" class="form-control" placeholder="gmail.com">
-                                </div>
+                                <label>Location Name</label>
+                                <input type="name" class="form-control " id="name" placeholder="Name">
                             </div>
-                            <div class="form-group col-md-6">
-                                <label for="password">Password</label>
+                        </div>
 
-                                <input type="password" class="form-control" id="password" placeholder="Password">
-                            </div>
+                        <div class="row justify-content-center m-3">
+                            <label>Upload an image of the location:</label>
+                            <div class="custom-file ml-5 mr-5">
+                                <input type="file" class="custom-file-input" id="customFile">
+                                <label class="custom-file-label" for="customFile">Choose file</label>
+                              </div>
                         </div>
-                        <div class="form-group pb-2">
-                            <label for="address">Street</label>
-                            <input type="text" class="form-control" id="address" placeholder="1280 Main St W.">
-                        </div>
+
+                        <div class="row justify-content-center m-4">
+                            <label>Describe the restaurant:</label>
+                            <textarea class="form-control" rows="3"></textarea>
+                        </div>                        
                         
+    
+                        <h6 class="text-center pt-3">Enter the latitude and longitute of the location:</h6>
+                        <div class="row justify-content-center text-center">
+                            
+                            <div class="form-group col-auto">
+                                <input type="name" class="form-control " id="name" placeholder="Latitude">
+                            </div>
+                            <div class="form-group col-auto">
+                                <input type="name" class="form-control " id="name" placeholder="Longitude">
+                            </div>
+                        </div>
 
-
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="inputCity">City</label>
-                                <input type="text" class="form-control" id="city" placeholder="Hamilton">
-                            </div>
-                        <div class="form-group col-md-4">
-                            <label for="inputState">Province</label>
-                            <select id="inputState" class="form-control">
-                            <option selected>Select...</option>
-                            <option>To be added</option>
-                            </select>
+                        <div class="row justify-content-center p-4">
+                            <a class="btn btn-primary" href="index.html" role="button">Submit</a>
                         </div>
-                            <div class="form-group col-md-2">
-                                <label for="inputZip">Postal Code</label>
-                                <input type="text" class="form-control" id="postal-code" placeholder="L8S 1Z2">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="form-check">
-                                <input class="form-check-input just" type="checkbox" id="gridCheck">
-                                <label class="form-check-label" for="gridCheck">I agree to the Terms and Conditions</label>
-                            </div>
-                        </div>
-                        <a class="btn btn-primary" href="results.html" role="button">Submit</a>
                     </form>
                 </div>
             </div>
         </div>
       </div>
     
-
-
-
-
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous"></script> 
   </body>
