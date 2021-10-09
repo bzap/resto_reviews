@@ -88,78 +88,71 @@
       </div>
     </nav>
   <!-- 
-    This is the container for the featured restaurants 
+    This is the container for the results form
     The elements in this container are divided using the grid system of boostrap 
-    It provides responsive resizing of the contents within
     There are various uses of bootstrap padding and margin adjustments with the classes 
     -->   
-  <div class="object-container text-center pt-5">
-    <!-- Header for the entire page -->
-    <h2 class="card-title pt-5"><strong><i>FEATURED LOCATIONS</i></strong></h2>
-  <!-- 
-    The grid is divided into one row and three column groups 
-    It spaces out the columns depending on the width of the page 
-    I have hardcoded 6 entries into the grid system to display
-    Generally it's a single column on mobile, and three columns on mid and large 
-    -->   
-    <div class="row m-5">
-      <!-- Beginning of first column group -->
-      <div class="col-md-4">
-        <!-- Show each form within a card --> 
+  <div class="results-container pt-5">
+    <div class="d-flex mt-5 justify-content-center">
+      <div class="col-md-6">
+        <!-- Show the form within a card --> 
         <div class="card shadow-lg p-3 mb-5 bg-white rounded-lg">
-          <!-- Implement the restaurant picture using bootstrap, provides responsive scaling using 'image-fluid' -->
-          <img src="place.jpg" class="shadow-sm img-fluid rounded-lg mb-2" alt="place">
-          <!-- Container to display the name, avg rating, and a short descr. of each restaurant -->
-          <div class="review-data">
-            <h2 class="card-title pt-2"><strong><i>Bento Sushi</i></strong></h2>
-            <h6 class="card-subtitle mb-2 text-muted"><i>Average Rating: 4.5 / 5</i></h6>
-            <p class="card-text">Bento Sushi is North America’s second largest sushi brand providing the highest quality packaged sushi and ready to heat/made to order hot Asian food.</p><a href="individual_sample.html" class="btn btn-dark rounded-lg">Info</a>
-          </div>
-        </div>
-        <div class="card shadow-lg p-3 mb-5 bg-white rounded-lg">
-          <img src="place.jpg" class="shadow-sm img-fluid rounded-lg mb-2" alt="place">
-          <div class="review-data">
-            <h2 class="card-title pt-2"><strong><i>Bento Sushi</i></strong></h2>
-            <h6 class="card-subtitle mb-2 text-muted"><i>Average Rating: 4.5 / 5</i></h6>
-            <p class="card-text">Bento Sushi is North America’s second largest sushi brand providing the highest quality packaged sushi and ready to heat/made to order hot Asian food.</p><a href="individual_sample.html" class="btn btn-dark rounded-lg">Info</a>
-          </div>
-        </div>
-      </div>
-      <!-- Beginning of second column group, with the same formatting as above -->
-      <div class="col-md-4">
-        <div class="card shadow-lg p-3 mb-5 bg-white rounded-lg">
-          <img src="place.jpg" class="shadow-sm img-fluid rounded-lg mb-2" alt="place">
-          <div class="review-data">
-            <h2 class="card-title pt-2"><strong><i>Bento Sushi</i></strong></h2>
-            <h6 class="card-subtitle mb-2 text-muted"><i>Average Rating: 4.5 / 5</i></h6>
-            <p class="card-text">Bento Sushi is North America’s second largest sushi brand providing the highest quality packaged sushi and ready to heat/made to order hot Asian food.</p><a href="individual_sample.html" class="btn btn-dark rounded-lg">Info</a>
-          </div>
-        </div>
-        <div class="card shadow-lg p-3 mb-5 bg-white rounded-lg">
-          <img src="place.jpg" class="shadow-sm img-fluid rounded-lg mb-2" alt="place">
-          <div class="review-data">
-            <h2 class="card-title pt-2"><strong><i>Bento Sushi</i></strong></h2>
-            <h6 class="card-subtitle mb-2 text-muted"><i>Average Rating: 4.5 / 5</i></h6>
-            <p class="card-text">Bento Sushi is North America’s second largest sushi brand providing the highest quality packaged sushi and ready to heat/made to order hot Asian food.</p><a href="individual_sample.html" class="btn btn-dark rounded-lg">Info</a>
-          </div>
-        </div>
-      </div>
-      <!-- Beginning of third column group, with the same formatting as above again -->
-      <div class="col-md-4">
-        <div class="card shadow-lg p-3 mb-5 bg-white rounded-lg">
-          <img src="place.jpg" class="shadow-sm img-fluid rounded-lg mb-2" alt="place">
-          <div class="review-data">
-            <h2 class="card-title pt-2"><strong><i>Bento Sushi</i></strong></h2>
-            <h6 class="card-subtitle mb-2 text-muted"><i>Average Rating: 4.5 / 5</i></h6>
-            <p class="card-text">Bento Sushi is North America’s second largest sushi brand providing the highest quality packaged sushi and ready to heat/made to order hot Asian food.</p><a href="individual_sample.html" class="btn btn-dark rounded-lg">Info</a>
-          </div>
-        </div>
-        <div class="card shadow-lg p-3 mb-5 bg-white rounded-lg">
-          <img src="place.jpg" class="shadow-sm img-fluid rounded-lg mb-2" alt="place">
-          <div class="review-data">
-            <h2 class="card-title pt-2"><strong><i>Bento Sushi</i></strong></h2>
-            <h6 class="card-subtitle mb-2 text-muted"><i>Average Rating: 4.5 / 5</i></h6>
-            <p class="card-text">Bento Sushi is North America’s second largest sushi brand providing the highest quality packaged sushi and ready to heat/made to order hot Asian food.</p><a href="individual_sample.html" class="btn btn-dark rounded-lg">Info</a>
+          <!-- Header for the enitre page -->
+          <h2 class="text-center pt-2"><strong><i>Nearby results for: "Sushi"</i></strong></h2>
+          <hr>
+          <!-- Implement the image using bootstrap, provides responsive scaling using 'image-fluid' -->
+          <img src="sample-locations.png" class="image-fluid rounded pb-5" alt="...">
+          <!-- Implement the table using bootstrap, provides responsive resizing and scrolling -->
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <!-- Headers for the table -->
+                <tr>
+                  <th scope="col">Rating</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Location</th>
+                  <th scope="col">Info</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- 
+                    This section contains sample locations that are somewhat relevant to the map screenshot
+                    Each result has a button that takes it to a sample restaurant page 
+                    -->
+                <tr>
+                  <th scope="row">4.5 / 5</th>
+                  <td>Bento Sushi</td>
+                  <td>751 Upper James St.</td>
+                  <td>
+                    <a class="btn btn-primary" href="individual_sample.html" role="button">Info</a>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">4 / 5</th>
+                  <td>Charlie's Chopsticks</td>
+                  <td>970 Upper James St.</td>
+                  <td>
+                    <a class="btn btn-primary" href="individual_sample.html" role="button">Info</a>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">3.4 / 5</th>
+                  <td>Umi Sushi Express</td>
+                  <td>999 Upper Wentworth St.</td>
+                  <td>
+                    <a class="btn btn-primary" href="individual_sample.html" role="button">Info</a>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">4.6 / 5</th>
+                  <td>Sushi On Fennell</td>
+                  <td>669 Fennell Ave E.</td>
+                  <td>
+                    <a class="btn btn-primary" href="individual_sample.html" role="button">Info</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
@@ -168,7 +161,7 @@
   <!-- 
       Added JS plugin to the end to improve performance (as per bootstrap recommendation) 
       Only here to enable the togglebar menu in the navbar to collapse while in responsive mode 
-  -->  
+  -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous"></script>
 </body>
 </html>
