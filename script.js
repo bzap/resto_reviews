@@ -1,6 +1,27 @@
 let map, infoWindow;
 storage = window.sessionStorage;
 
+document.getElementById('custom-file-loc').onchange = function () { 
+    document.getElementById('loc-label').innerHTML = this.value.replace(/^.*[\\\/]/, '');
+}
+
+document.getElementById('custom-file-food').onchange = function () { 
+    document.getElementById('food-label').innerHTML = this.value.replace(/^.*[\\\/]/, '');
+}
+
+document.getElementById("password").addEventListener("input", function(event){ 
+
+
+    if (document.getElementById("password").validity.valueMissing) { 
+        passwordError.textContent = "Password is required." 
+
+    }
+    else { 
+        passwordError.textContent = '';
+        passwordError.className = 'error';
+    }
+})
+
 
 
 function submissionLoc() { 
@@ -141,27 +162,7 @@ function initMap() {
 
     if (isNaN(lng) || isNaN(lat)){ 
         console.log("i got here");
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(
-              (position) => {
-                const pos = {
-                  lat: position.coords.latitude,
-                  lng: position.coords.longitude,
-                };
-                document.getElementById('sub-lat').value=pos.lat;
-                document.getElementById('sub-long').value=pos.lng;
-                storage.setItem('lat', pos.lat);
-                storage.setItem('lng', pos.lng);
-                
-            },
-            () => {
-            
-            }
-          );
-        } else {
-          // Browser doesn't support Geolocation
-        }
-        console.log(parseFloat(storage.getItem('lat')));
+        submissionLoc();
 
     }
     let lat_new = parseFloat(storage.getItem('lat'));
