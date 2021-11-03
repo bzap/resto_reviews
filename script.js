@@ -1,29 +1,111 @@
 let map, infoWindow;
 storage = window.sessionStorage;
 
-document.getElementById('custom-file-loc').onchange = function () { 
+
+const fileLoc = document.getElementById('custom-file-loc');
+
+/*
+fileLoc.onchangdocument.getElementById('custom-file-loc')e = function () { 
     document.getElementById('loc-label').innerHTML = this.value.replace(/^.*[\\\/]/, '');
 }
+*/
 
+/*
 document.getElementById('custom-file-food').onchange = function () { 
     document.getElementById('food-label').innerHTML = this.value.replace(/^.*[\\\/]/, '');
 }
+*/
 
+//const form = 
+const city = document.getElementById('city');
+const password = document.getElementById('password');
+let error = document.getElementsByClassName('error');
+
+//console.log(form);
+console.log(error[0].innerText);
+error[0].innerText = "sdf"; 
+//console.log(password);
+console.log(error[0].innerText);
+
+function valError(id, errorMsg, serial){
+
+    if (id.value.trim() === ""){
+        console.log("yeah")
+        console.log(error);
+         error[serial].innerText = errorMsg; 
+         console.log(error);
+    }
+    else {
+        console.log("ok");
+        error[serial].innerText = "";
+      }
+
+
+}
+
+document.getElementById('registration').addEventListener('submit', (e) => {
+    e.preventDefault();
+    /*
+    console.log("i got here");
+    //let mesasges = [] 
+    if (password.value === '' || password.value == null){
+          error.innerText = "yeah budddHE";
+
+    }
+    */
+    //    console.log("why");
+    //}
+    //if (mesasges.length > 0){
+    //    
+    //    error.innerText = messages.join(',');
+    //}
+
+    valError(document.getElementById('email-pt1'), "no email", 0);
+    valError(document.getElementById('email-pt2'), "no email2", 1);
+    valError(document.getElementById('password'), "no password", 2);
+    valError(document.getElementById('date'), "no date", 3);
+    valError(document.getElementById('address'), "no street", 4);
+    valError(document.getElementById('city'), "no city", 5);
+    valError(document.getElementById('input-state'), "no prov", 6);
+    valError(document.getElementById('postal-code'), "no postalcode", 7);
+
+   
+    
+
+})
+
+
+
+
+
+
+// add the error messages here and add custom html to hide/display the error messages
+
+// https://www.javascripttutorial.net/javascript-dom/javascript-form-validation/
+
+
+/*
 document.getElementById("password").addEventListener("input", function(event){ 
 
 
     if (document.getElementById("password").validity.valueMissing) { 
         passwordError.textContent = "Password is required." 
-
     }
     else { 
-        passwordError.textContent = '';
-        passwordError.className = 'error';
+
     }
 })
 
+var password = document.getElementById("password");
+function registration() { 
 
+    if (password.innerHTML == null || password.innerhtml == ''){ 
+        alert 
+    }
 
+}
+
+*/ 
 function submissionLoc() { 
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
