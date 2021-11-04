@@ -39,6 +39,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <script src="script.js" defer></script>
+    <script src="sub-script.js" defer></script>
   </head>
   <body>
     <!-- 
@@ -138,10 +139,11 @@
             <!-- Restuarant location forms --> 
             <div class="row justify-content-center text-center">
               <div class="form-group col-auto">
-                <input type="number" class="form-control" id="sub-lat" placeholder="Latitude"  required>
+                <!-- number and step any for decimal places -->
+                <input type="number" step="any" class="form-control" id="sub-lat" placeholder="Latitude"  required>
               </div>
               <div class="form-group col-auto">
-                <input type="number" class="form-control" id="sub-long" placeholder="Longitude" required>
+                <input type="number" step="any" class="form-control" id="sub-long" placeholder="Longitude" required>
               </div>
             </div>
             <div class="row justify-content-center text-center">
