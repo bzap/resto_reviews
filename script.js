@@ -1,6 +1,7 @@
 let map, infoWindow;
 storage = window.sessionStorage;
 
+
 function initMap() {
     infoWindow = new google.maps.InfoWindow();
     infoWindow.setPosition({ lat: 0, lng: 0 });
