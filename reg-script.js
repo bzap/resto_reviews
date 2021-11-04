@@ -4,6 +4,7 @@ let error = document.getElementsByClassName('error');
 
 
 
+
 function valError(id, message, index){
     //console.log(id.value);
     if (id.value.trim() === "" || id.value.trim() == 'Select...' || !id.checked){
@@ -14,6 +15,7 @@ function valError(id, message, index){
         error[index].innerText = "";
       }
 }
+
 
 document.getElementById('registration').addEventListener('submit', (e) => {
     e.preventDefault();
@@ -35,11 +37,11 @@ document.getElementById('registration').addEventListener('submit', (e) => {
 
     valError(document.getElementById('grid-check'), "Missing terms and conditions!", 8);
     
+    const item =  document.querySelectorAll('.error');
 
-
-    const item =  document.querySelector('.error');
-    item.style.setProperty('--animate-duration', '0.5s');
-    item.classList.add('animate__animated', 'animate__fadeIn');
+    for (i = 0; i < item.length; i++){ 
+      item[i].classList.add('animate__animated', 'animate__fadeIn');
+    }
 })
 
 
