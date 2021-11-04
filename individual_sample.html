@@ -38,7 +38,6 @@
     <!-- Enabling bootstrap -->   
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <script src="script.js" defer></script>
   </head>
   <body>
@@ -46,49 +45,50 @@
         This is the container for the navbar, complemented by the dark theming of bootstrap
         There are various uses of bootstrap padding and margin adjustments with the classes 
         --> 
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-      <!-- Provides a toggle bar in responsive mode to hide options --> 
-      <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#toggle-drop" aria-controls="toggle-drop" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        </button>
-        <!-- I added a bootstrap icon next to the text and changed the typography --> 
-        <a class="navbar-brand bi-cup-straw" href="index.html"> <strong><i>RestoREVIEWS</i></strong></a>
-        <div class="collapse navbar-collapse" id="toggle-drop">
-          <!-- 
-            Navbar items that are shown on wider screens, and hidden behind the menu otherwise  
-            They each link to the respective html pages 
-            --> 
-          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item">
-              <a class="nav-link" href="registration.html">LOG-IN</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="registration.html">REGISTER</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="submission.html">SUBMIT</a>
-            </li>
-          </ul>
-          <form class="flex my-5 my-lg-0">
-            <div class="input-group mr-2">
-              <!-- Dropdown button next to the search form to allow changing the filtering --> 
-              <button class="btn btn-secondary dropdown-toggle my-2 my-sm-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">Filter</button>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Name</a></li>
-                <li><a class="dropdown-item" href="#">Rating</a></li>
-              </ul>
+        <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+          <!-- Provides a toggle bar in responsive mode to hide options --> 
+          <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#toggle-drop" aria-controls="toggle-drop" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- I added a bootstrap icon next to the text and changed the typography --> 
+            <a class="navbar-brand bi-cup-straw" href="index.html"> <strong><i>RestoREVIEWS</i></strong></a>
+            <div class="collapse navbar-collapse" id="toggle-drop">
               <!-- 
-                  Search button next to search form 
-                  Pressing it links to the search results page 
-                  --> 
-              <input class="form-control mr-2 my-2 my-sm-0" type="search" placeholder="Search" aria-label="Search">
-              <a class="btn btn-secondary my-2 my-sm-0" href="search.html" role="button">search</a>
+                Navbar items that are shown on wider screens, and hidden behind the menu otherwise  
+                They each link to the respective html pages 
+                --> 
+              <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link" href="registration.html">LOG-IN</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="registration.html">REGISTER</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="submission.html">SUBMIT</a>
+                </li>
+              </ul>
+              <form class="flex my-5 my-lg-0">
+                <div class="input-group mr-2">
+                  <!-- Dropdown button next to the search form to allow changing the filtering --> 
+                  <button class="btn btn-secondary dropdown-toggle my-2 my-sm-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">Filter</button>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Name</a></li>
+                    <li><a class="dropdown-item" href="#">Rating</a></li>
+                  </ul>
+                  <!-- 
+                      Search button next to search form 
+                      Pressing it links to the search results page 
+                      --> 
+                  <input class="form-control mr-2 my-2 my-sm-0" type="search" placeholder="Search" aria-label="Search">
+                  <a class="btn btn-secondary my-2 my-sm-0" href="search.html" role="button">search</a>
+                  <a class="btn btn-primary ml-2" href="search.html" id="testing" role="button">search by geo-location</a>
+                </div>
+              </form>
             </div>
-          </form>
-        </div>
-      </div>
-    </nav>
+          </div>
+        </nav>
   <!-- 
     This is the container for the restaurant object form
     The elements in this container are divided using the grid system of boostrap 

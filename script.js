@@ -1,49 +1,6 @@
 let map, infoWindow;
 storage = window.sessionStorage;
 
-
-
-
-
-
-
-//const form = 
-
-
-//console.log(form);
-//console.log(error[0].innerText);
-//error[0].innerText = "sdf"; 
-//console.log(password);
-//console.log(error[0].innerText);
-
-
-
-function submissionLoc() { 
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-          (position) => {
-            const pos = {
-              lat: position.coords.latitude,
-              lng: position.coords.longitude,
-            };
-            document.getElementById('sub-lat').value=pos.lat;
-            document.getElementById('sub-long').value=pos.lng;
-            storage.setItem('lat', pos.lat);
-            storage.setItem('lng', pos.lng);
-            
-        },
-        () => {
-          handleLocationError(true, infoWindow, map.getCenter());
-        }
-      );
-    } else {
-      // Browser doesn't support Geolocation
-      handleLocationError(false, infoWindow, map.getCenter());
-    }
-
-}
-
-
 function initMap() {
     infoWindow = new google.maps.InfoWindow();
     infoWindow.setPosition({ lat: 0, lng: 0 });
@@ -65,15 +22,11 @@ function initMap() {
             map.setCenter(pos);
             map.setZoom(13);
             infoWindow.close();
-
-
-
             const loc_one = new google.maps.Marker({
         
                 position: { lat: pos.lat+0.009, lng: pos.lng+0.004 },
                 label: "A",
                 map,
-                title: "Hello World!",
                 
               }); 
 
@@ -82,8 +35,7 @@ function initMap() {
                 position: { lat: pos.lat+0.014, lng: pos.lng+0.010 },
                 label: "B",
                 map,
-                
-                title: "Hello World!",
+              
               
               }); 
 
@@ -92,11 +44,8 @@ function initMap() {
                 position: { lat: pos.lat+0.003, lng: pos.lng+0.006 },
                 label: "C",
                 map,
-                title: "Hello World!",
               }); 
-
-              console.log(pos);
-              console.log({lat: pos.lat+0.007, lng: pos.lng+0.010 })       
+ 
 
               google.maps.event.addListener(loc_one, 'click', function(){
 
@@ -109,22 +58,16 @@ function initMap() {
                 storage.setItem('lng', pos.lng+0.004);
                 infoWindow.open(map, loc_one);
             });
-
             google.maps.event.addListener(loc_two, 'click', function(){
                 infoWindow.close(); // Close previously opened infowindow
                 infoWindow.setPosition({lat: pos.lat+0.014, lng: pos.lng+0.010 });
                 map.panTo({lat: pos.lat+0.014, lng: pos.lng+0.010 });
                 infoWindow.setContent('Umi Sushi Express: <a href="individual_sample.html">' +
                 "Read more</a> ");
-                console.log(pos.lat);
+
                 storage.setItem('lat', pos.lat+0.014);
                 storage.setItem('lng', pos.lng+0.010);
                 infoWindow.open(map, loc_two);
-                /*
-                if (document.url == 'sample.html'){
-                    initMapIndividual(pos); 
-                }
-                */
             });
 
             google.maps.event.addListener(loc_three, 'click', function(){
@@ -148,36 +91,54 @@ function initMap() {
       }
   }
 
- function initMapIndividual() { 
-    let lat = parseFloat(storage.getItem('lat'));
-    let lng = parseFloat(storage.getItem('lng'));
-    console.log(lng);
-    console.log(isNaN(lng));
-
-    if (isNaN(lng) || isNaN(lat)){ 
-        console.log("i got here");
-        submissionLoc();
-
+function initMapIndividual() { 
+    if (isNaN(parseFloat(storage.getItem('lat'))) || isNaN(parseFloat(storage.getItem('lng')))){ 
+        submissionInd();
     }
-    let lat_new = parseFloat(storage.getItem('lat'));
-    let lng_new = parseFloat(storage.getItem('lng'));
-    console.log(lng_new);
-    //console.log(Object.prototype.toString.call(lat));
-    //console.log(lat);
-    map = new google.maps.Map(document.getElementById("map"), {
-        center: { lat: lat, lng: lng },
-        zoom: 2,
-      }); 
-      map.setCenter({ lat: lat, lng: lng });
-      map.setZoom(14);
-
-
-      const loc_one = new google.maps.Marker({
-        position: { lat: lat, lng: lng },
-        label: 'A',
-        map,  
-      }); 
+    else { 
+      let lat = parseFloat(storage.getItem('lat'));
+      let lng = parseFloat(storage.getItem('lng'));
+      setMap(lat, lng);
+    } 
  }
+
+function submissionInd() { 
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            const pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude,
+            };
+            setMap(pos.lat, pos.lng);
+        },
+        () => {
+          handleLocationError(true, infoWindow, map.getCenter());
+        }
+      );
+    } else {
+      // Browser doesn't support Geolocation
+      handleLocationError(false, infoWindow, map.getCenter());
+    }
+}
+
+function setMap(lat, lng) { 
+    map = new google.maps.Map(document.getElementById("map"), {
+      center: { lat: lat, lng: lng },
+      zoom: 2,
+    }); 
+    map.setCenter({ lat: lat, lng: lng });
+    map.setZoom(14);
+    const loc_one = new google.maps.Marker({
+      position: { lat: lat, lng: lng },
+      label: 'A',
+      map,  
+    }); 
+
+
+
+}
+
 
 
   function handleLocationError(browserHasGeolocation, infoWindow, pos) {
