@@ -32,3 +32,6 @@ Object submission page -> There is a geo-location button found in submission.htm
                        -> There is HTML form validation found in submission.html 
 User registration page -> There is JS form validation on button press found in registration.js, handled by reg-script.js 
 Animation -> Found in various places (I commented in the JS files), handled by each script file
+
+
+Sushi image credits: Sushi Box Toronto, https://www.sushiboxonbay.com/
