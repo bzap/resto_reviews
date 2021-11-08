@@ -38,9 +38,11 @@
     <!-- Enabling bootstrap -->   
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <!-- Enabling the js functionality as well as animations -->  
     <script src="script.js" defer></script>
     <script src="sub-script.js" defer></script>
     <script src="anim.js" defer></script>
+    <!-- Importing animate.css -->  
     <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
@@ -107,20 +109,18 @@
         <div class="card shadow-lg p-3 mb-5 bg-white rounded-lg">
           <!-- Header for the enitre page --> 
           <h2 class="align-self-center pt-3 pb-4"><strong>Submit a new location:</strong></h2>
-          <!-- Form container for all of the forms --> 
-
-
+          <!-- Form container for all of the forms, has the 'needs-validation' tag for form validation --> 
           <form class="needs-validation">
             <div class="row justify-content-center text-center">
               <!-- Location form --> 
               <div class="form-group col-auto">
                 <label class="form-label">Location Name:</label> 
+                <!-- Each of the forms that need validation contain the 'required' tag -->  
                 <input type="text" class="form-control has-validation" placeholder="Name" required>
                 <div class="invalid-feedback">
                   Please enter a valid location name.
                 </div>
               </div>
-
             </div>
             <!-- HTML5 file input form to upload a file --> 
             <div class="row justify-content-center m-3">
@@ -154,9 +154,9 @@
             </div>
             <div class="row justify-content-center text-center">
               <div class="form-group col-auto"> 
+                <!-- Calls the submissionLoc() function on press to get geolocation -->  
                 <button type="button" class="btn btn-info" onclick="submissionLoc()">Geolocation</button>
               </div>
-
             </div>
             <!-- Button to submit and link back to the homepage --> 
             <div class="row justify-content-center p-5">
