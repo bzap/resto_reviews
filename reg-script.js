@@ -9,7 +9,7 @@ let error = document.getElementsByClassName('error');
 // this function takes the missing form and sets the error message based on the error div index 
 function valError(id, message, index){
     // trims the input and checks if it's empty, handles the dropdown, and validates the checkbox 
-    if (id.value.trim() === "" || id.value.trim() == 'Select...' || id.checked == true){
+    if (id.value.trim() === "" || id.value.trim() == 'Select...'){
         // sets the error message to the specified div 
         error[index].innerText = message; 
     }
