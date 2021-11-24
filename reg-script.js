@@ -22,8 +22,8 @@ function valError(id, message, index){
 // this eventlistener handles the click on the submit button and checks to see what forms are missing 
 // it finds the form by id, and then 
 document.getElementById('registration').addEventListener('submit', (e) => {
-    // prevent submission of the form if any forms are empty 
-    e.preventDefault();
+     
+  //console.log(document.getElementById('registration').isValid());
     valError(document.getElementById('email-pt1'), "Missing email address!", 0);
     valError(document.getElementById('email-pt2'), "Missing domain!", 1);
     // this separates the error message of the email and address fields based on which form is missing 
@@ -38,14 +38,28 @@ document.getElementById('registration').addEventListener('submit', (e) => {
     valError(document.getElementById('city'), "Missing city!", 5);
     valError(document.getElementById('input-state'), "Missing province!", 6);
     valError(document.getElementById('postal-code'), "Missing postalcode!", 7);
-    valError(document.getElementById('grid-check'), "Missing terms and conditions!", 8);
     // find every error query 
     const item =  document.querySelectorAll('.error');
     // add a fade animation to each one for when they appear 
     for (i = 0; i < item.length; i++){ 
       item[i].classList.add('animate__animated', 'animate__fadeIn');
     }
+    let test = true; 
+    for (i = 0; i < error.length; i++){ 
+      if (error[i].innerText != ""){ 
+        result = false; 
+        break;
+      }
+      else{ 
+        result = true;
+      }
+    }
+    if (result !== true){ 
+      e.preventDefault();
+    }    
 })
+
+
 
 
 

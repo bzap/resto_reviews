@@ -1,3 +1,4 @@
+
 <!doctype html>
 <!-- This line contains the prefix that allow Open Graph to be implemented -->
 <html lang="en" prefix="og: https://ogp.me/ns#">
@@ -111,14 +112,14 @@
                 <!-- Header for the entire page --> 
                 <h2 class="location-header text-center pt-3 pb-3"><strong>Registration Form </strong></h2>
                 <!-- Form container to contain all the forms --> 
-                <form id="registration">
+                <form id="registration" method="post" action="save_data.php">
                     <h4 class="location-header text-center pt-3">Account Details: </h4>
                     <hr/>
                     <div class="row justify-content-center">
                       <!-- Email form using bootstraps prepend to show the '@' in a nicer format --> 
                       <label class="pt-1" >Email: </label>
                       <div class="input-group mb-1 col-md-6">
-                        <input type="text" class="form-control" id="email-pt1" placeholder="Email" aria-label="Email">
+                        <input type="text" class="form-control" id="email-pt1" name="email-pt1" placeholder="Email" aria-label="Email">
                         <span class="input-group-text">@</span>
                         <input type="text" class="form-control" id="email-pt2" placeholder="gmail.com" aria-label="Server">
                       </div>
@@ -130,7 +131,7 @@
                     <div class="row justify-content-center mt-4">
                       <label class="pt-2" >Password: </label>
                       <div class="form-group col-md-4">
-                          <input type="password" id="password" class="form-control" placeholder="Password">
+                          <input type="password" id="password" name="password" class="form-control" placeholder="Password">
                           <div class="error text-danger text-center"></div> 
                       </div>  
                     </div>
@@ -141,13 +142,13 @@
                     </div>
                     <div class="error text-danger text-center"></div>
                     <!-- Header for the address --> 
-                    <h4 class="location-header text-center pt-5">Your address: </h4>
+                    <h4 class="location-header text-c enter pt-5">Your address: </h4>
                     <hr/>
                     <!-- Address form --> 
                     <div class="form-row justify-content-center">
                         <div class="form-group col-md-4">
                           <label for="address">Street</label>
-                          <input type="text" class="form-control" id="address" placeholder="1280 Main St W.">
+                          <input type="text" class="form-control" id="address" name="address" placeholder="1280 Main St W.">
                           <div class="error text-danger text-center"></div> 
                         </div>
                     </div>    
@@ -156,13 +157,13 @@
                         <!-- City form --> 
                         <div class="form-group col-md-4">
                             <label for="city">City</label>
-                            <input type="text" class="form-control" id="city" placeholder="Hamilton">
+                            <input type="text" class="form-control" id="city" name="city" placeholder="Hamilton">
                             <div class="error text-danger text-center"></div> 
                         </div>
                         <!-- Province form, incorporating a dropdown --> 
                         <div class="form-group col-md-3" >
                           <label for="input-state">Province</label>
-                          <select  class="form-control" id="input-state">
+                          <select  class="form-control" id="input-state" name="input-state">
                             <option  selected>Select...</option>
                             <option>To be added</option>
                           </select>
@@ -171,19 +172,12 @@
                         <!-- Postal code form --> 
                         <div class="form-group col-md-2">
                           <label for="postal-code">Postal Code</label>
-                          <input type="text" class="form-control" id="postal-code" placeholder="L8S 1Z2">
+                          <input type="text" class="form-control" id="postal-code" name="postal-code" placeholder="L8S 1Z2">
                           <div class="error text-danger text-center"></div> 
                         </div>
-                        <!-- Check box form --> 
-                        <div class="form-group justify-content-center text-center pt-5 pb-3">
-                          <div class="form-check">
-                            <input class="form-check-input just" type="checkbox" id="grid-check">
-                            <label class="form-check-label pb-2" for="grid-check">I agree to the Terms and Conditions</label>
-                          </div>
-                          <div class="error text-danger text-center"></div> 
                           <!-- Button to submit and link back to the homepage --> 
                           <div class="row justify-content-center p-3">
-                            <button class="btn btn-primary" type="submit" href="index.html" >Submit form</button> 
+                          <button type="submit" class="btn btn-primary">Submit</button>
                           </div>
                         </div>   
                 </form>
