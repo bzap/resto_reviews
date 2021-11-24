@@ -164,8 +164,20 @@
                         <div class="form-group col-md-3" >
                           <label for="input-state">Province</label>
                           <select  class="form-control" id="input-state" name="input-state">
-                            <option  selected>Select...</option>
-                            <option>To be added</option>
+                            <option disabled selected value>Select...</option>
+                            <option>Alberta</option>
+                            <option>British Columbia</option>
+                            <option>Manitoba</option>
+                            <option>New Brunswick</option>
+                            <option>Newfoundland and Labrador</option>
+                            <option>Northwest Territories</option>
+                            <option>Nova Scotia</option>
+                            <option>Nunavut</option>
+                            <option>Ontario</option>
+                            <option>Quebec</option>
+                            <option>Saskatchewan</option>
+                            <option>Yukon</option>
+                            <option>Prince Edward Island</option> 
                           </select>
                           <div class="error text-danger text-center"></div> 
                         </div>
