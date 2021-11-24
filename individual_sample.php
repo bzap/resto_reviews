@@ -1,13 +1,6 @@
 <?php
 include_once("individual.php");
-
 ?>
-<?php
-while ($row = $result_2->fetch_assoc()) {
-  printf("%s (%s)\n", $row["remail"], $row["review"]);
-}
-?>
-
 <!doctype html>
 <!-- This line contains the prefix that allow Open Graph to be implemented -->
 <html lang="en" prefix="og: https://ogp.me/ns#">
@@ -168,23 +161,28 @@ while ($row = $result_2->fetch_assoc()) {
                   <div class="media-body">
                     <!-- Each reviewer has a name, rating and sometimes may have comments submitted -->
                     <h5 itemprop="author" class="mt-0 mb-1"><?php echo $row['remail']; ?></h5>
-                    <h6 itemprop="reviewRating" class="mt-0 mb-1 text-muted">5 / 5</h6><span itemprop="reviewBody"><?php echo $row['review']; ?></span>
+                    <h6 itemprop="reviewRating" class="mt-0 mb-1 text-muted"><?php echo $row['rating']; ?> / 5.00</h6><span itemprop="reviewBody"><?php echo $row['review']; ?></span>
                   </div>
                 </li>
               <?php } ?>
             </ul>
 
-            <?php 
-                while($row = $result_2->fetch_assoc() ) { ?>
-              <div class="media">
-                <div class="media-body">
-                  <h5 class="mt-0 mb-1">Media object</h5>
-                  Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                </div>
-                <img class="ml-3" src="..." alt="Generic placeholder image">
+            <hr>
+            <form class="needs-validation" method="post" action="review.php">
+              <div class="form-group col-4 justify-content-center">
+                  <label class="form-label">Enter a rating out of 5:</label> 
+                  <!-- Each of the forms that need validation contain the 'required' tag -->  
+                  <input type="text" class="form-control has-validation" name="rating" id="rating" placeholder="Rating" required>
+                  <div class="invalid-feedback">
+                    Please enter a valid location name.
+                  </div>
               </div>
-              <?php } ?>
-
+              <div class="row justify-content-center m-4">
+                <label>Submit your own review:</label> 
+                <textarea class="form-control" rows="3" name="anothertry" id="anothertry" required></textarea>
+              <button class="btn btn-primary m-4" href="" type="submit">Submit review</button> 
+              </div>
+            </form> 
 
           </div>
         </div>
