@@ -22,7 +22,7 @@
     <meta name="twitter:creator" content="@LinasAleknevicius" /> 
     <meta property="og:title" content="RestoREVIEWS" />
     <meta property="og:type" content="review.site" />
-    <meta property="og:url" content="index.html" />
+    <meta property="og:url" content="index.php" />
     <meta property="og:image" content="https://i.imgur.com/ewqJL3I.png" />
     <meta property="og:description" 
       content="A fantastic local reviews site to see real ratings given by real people." />
@@ -60,21 +60,21 @@
         <span class="navbar-toggler-icon"></span>
         </button>
         <!-- I added a bootstrap icon next to the text and changed the typography --> 
-        <a class="navbar-brand bi-cup-straw" href="index.html"> <strong><i>RestoREVIEWS</i></strong></a>
+        <a class="navbar-brand bi-cup-straw" href="index.php"> <strong><i>RestoREVIEWS</i></strong></a>
         <div class="collapse navbar-collapse" id="toggle-drop">
           <!-- 
             Navbar items that are shown on wider screens, and hidden behind the menu otherwise  
-            They each link to the respective html pages 
+            They each link to the respective php pages 
             --> 
           <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item">
-              <a class="nav-link" href="registration.html">LOG-IN</a>
+              <a class="nav-link" href="registration.php">LOG-IN</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="registration.html">REGISTER</a>
+              <a class="nav-link" href="registration.php">REGISTER</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="index.html">SUBMIT</a>
+              <a class="nav-link" href="index.php">SUBMIT</a>
             </li>
           </ul>
           <form class="flex my-5 my-lg-0">
@@ -90,8 +90,8 @@
                   Pressing it links to the search results page 
                   --> 
               <input class="form-control mr-2 my-2 my-sm-0" type="search" placeholder="Search" aria-label="Search">
-              <a class="btn btn-secondary my-2 my-sm-0" href="search.html" role="button">search</a>
-              <a class="btn btn-primary ml-2" href="search.html" id="testing" role="button">search by geo-location</a>
+              <a class="btn btn-secondary my-2 my-sm-0" href="search.php" role="button">search</a>
+              <a class="btn btn-primary ml-2" href="search.php" id="testing" role="button">search by geo-location</a>
             </div>
           </form>
         </div>
@@ -110,46 +110,46 @@
           <!-- Header for the enitre page --> 
           <h2 class="align-self-center pt-3 pb-4"><strong>Submit a new location:</strong></h2>
           <!-- Form container for all of the forms, has the 'needs-validation' tag for form validation --> 
-          <form class="needs-validation">
+          <form class="needs-validation" method="post" action="save_submission.php">
             <div class="row justify-content-center text-center">
               <!-- Location form --> 
               <div class="form-group col-auto">
                 <label class="form-label">Location Name:</label> 
                 <!-- Each of the forms that need validation contain the 'required' tag -->  
-                <input type="text" class="form-control has-validation" placeholder="Name" required>
+                <input type="text" class="form-control has-validation" name="name" id="name" placeholder="Name" required>
                 <div class="invalid-feedback">
                   Please enter a valid location name.
                 </div>
               </div>
             </div>
-            <!-- HTML5 file input form to upload a file --> 
+            <!-- php5 file input form to upload a file --> 
             <div class="row justify-content-center m-3">
               <label>Upload an image of the location:</label>
               <div class="custom-file ml-5 mr-5">
-                <input type="file" class="custom-file-input" id="custom-file-loc" required> <label class="custom-file-label" id="loc-label" for="custom-file-loc">Choose file</label>
+                <input type="file" class="custom-file-input" id="custom-file-loc" name="custom-file-loc" required> <label class="custom-file-label" id="loc-label" for="custom-file-loc">Choose file</label>
               </div>
             </div>
-            <!-- HTML5 file input form to upload a file --> 
+            <!-- php5 file input form to upload a file --> 
             <div class="row justify-content-center m-3">
               <label>Upload a video of the food:</label>
               <div class="custom-file ml-5 mr-5">
-                <input type="file" class="custom-file-input" id="custom-file-food" required> <label class="custom-file-label" id="food-label" for="custom-file-food">Choose file</label>
+                <input type="file" class="custom-file-input" id="custom-file-food" name="custom-file-food" required> <label class="custom-file-label" id="food-label" for="custom-file-food">Choose file</label>
               </div>
             </div>
             <!-- Restaurant description form --> 
             <div class="row justify-content-center m-4">
               <label>Describe the restaurant:</label> 
-              <textarea class="form-control" rows="3" required></textarea>
+              <textarea class="form-control" rows="3" name="anothertry" id="anothertry" required></textarea>
             </div>
             <h6 class="text-center pt-3">Enter the latitude/longitute manually or use your location:</h6>
             <!-- Restuarant location forms --> 
             <div class="row justify-content-center text-center">
               <div class="form-group col-auto">
                 <!-- number and step any for decimal places -->
-                <input type="number" step="any" class="form-control" id="sub-lat" placeholder="Latitude"  required>
+                <input type="number" step="any" class="form-control" id="sub-lat" name="sub-lat" placeholder="Latitude"  required>
               </div>
               <div class="form-group col-auto">
-                <input type="number" step="any" class="form-control" id="sub-long" placeholder="Longitude" required>
+                <input type="number" step="any" class="form-control" id="sub-long" name="sub-long" placeholder="Longitude" required>
               </div>
             </div>
             <div class="row justify-content-center text-center">
@@ -160,7 +160,7 @@
             </div>
             <!-- Button to submit and link back to the homepage --> 
             <div class="row justify-content-center p-5">
-            <button class="btn btn-primary" href="index.html" type="submit">Submit form</button> 
+            <button class="btn btn-primary" href="index.php" type="submit">Submit form</button> 
             </div>
           </form>
         </div>

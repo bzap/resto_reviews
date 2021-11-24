@@ -23,7 +23,7 @@
     <meta name="twitter:creator" content="@LinasAleknevicius" /> 
     <meta property="og:title" content="RestoREVIEWS" />
     <meta property="og:type" content="review.site" />
-    <meta property="og:url" content="index.html" />
+    <meta property="og:url" content="index.php" />
     <meta property="og:image" content="https://i.imgur.com/ewqJL3I.png" />
     <meta property="og:description" 
       content="A fantastic local reviews site to see real ratings given by real people." />
@@ -60,21 +60,21 @@
             <span class="navbar-toggler-icon"></span>
             </button>
             <!-- I added a bootstrap icon next to the text and changed the typography --> 
-            <a class="navbar-brand bi-cup-straw" href="index.html"> <strong><i>RestoREVIEWS</i></strong></a>
+            <a class="navbar-brand bi-cup-straw" href="index.php"> <strong><i>RestoREVIEWS</i></strong></a>
             <div class="collapse navbar-collapse" id="toggle-drop">
               <!-- 
                 Navbar items that are shown on wider screens, and hidden behind the menu otherwise  
-                They each link to the respective html pages 
+                They each link to the respective php pages 
                 --> 
               <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item">
-                  <a class="nav-link" href="registration.html">LOG-IN</a>
+                  <a class="nav-link" href="registration.php">LOG-IN</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="registration.html">REGISTER</a>
+                  <a class="nav-link" href="registration.php">REGISTER</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="submission.html">SUBMIT</a>
+                  <a class="nav-link" href="submission.php">SUBMIT</a>
                 </li>
               </ul>
               <form class="flex my-5 my-lg-0">
@@ -90,8 +90,8 @@
                       Pressing it links to the search results page 
                       --> 
                   <input class="form-control mr-2 my-2 my-sm-0" type="search" placeholder="Search" aria-label="Search">
-                  <a class="btn btn-secondary my-2 my-sm-0" href="search.html" role="button">search</a>
-                  <a class="btn btn-primary ml-2" href="search.html" id="testing" role="button">search by geo-location</a>
+                  <a class="btn btn-secondary my-2 my-sm-0" href="search.php" role="button">search</a>
+                  <a class="btn btn-primary ml-2" href="search.php" id="testing" role="button">search by geo-location</a>
                 </div>
               </form>
             </div>
@@ -135,7 +135,7 @@
                           <div class="error text-danger text-center"></div> 
                       </div>  
                     </div>
-                    <!-- HTML5 type date picker to choose the date of birth --> 
+                    <!-- php5 type date picker to choose the date of birth --> 
                     <div class="row justify-content-center mt-4">
                       <label class="pt-1 pr-3">Date of Birth: </label>
                       <input class="text-muted" type="date" id="date" name="date">

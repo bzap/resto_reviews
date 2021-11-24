@@ -1,6 +1,6 @@
 <!doctype html>
 <!-- This line contains the prefix that allow Open Graph to be implemented -->
-<html lang="en" prefix="og: https://ogp.me/ns#">
+<hmtl lang="en" prefix="og: https://ogp.me/ns#">
   <head>
     <!-- 
       This is the metadata to enable adding to the homescreen
@@ -22,7 +22,7 @@
     <meta name="twitter:creator" content="@LinasAleknevicius" /> 
     <meta property="og:title" content="RestoREVIEWS" />
     <meta property="og:type" content="review.site" />
-    <meta property="og:url" content="index.html" />
+    <meta property="og:url" content="index.php" />
     <meta property="og:image" content="https://i.imgur.com/ewqJL3I.png" />
     <meta property="og:description" 
       content="A fantastic local reviews site to see real ratings given by real people." />
@@ -60,11 +60,11 @@
         <span class="navbar-toggler-icon"></span>
         </button>
         <!-- I added a bootstrap icon next to the text and changed the typography --> 
-        <a class="navbar-brand bi-cup-straw" href="index.html"> <strong><i>RestoREVIEWS</i></strong></a>
+        <a class="navbar-brand bi-cup-straw" href="index.php"> <strong><i>RestoREVIEWS</i></strong></a>
         <div class="collapse navbar-collapse" id="toggle-drop">
           <!-- 
             Navbar items that are shown on wider screens, and hidden behind the menu otherwise  
-            They each link to the respective html pages 
+            They each link to the respective php pages 
             --> 
           <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item">
@@ -74,7 +74,7 @@
               <a class="nav-link" href="registration.php">REGISTER</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="submission.html">SUBMIT</a>
+              <a class="nav-link" href="submission.php">SUBMIT</a>
             </li>
           </ul>
           <form class="flex my-5 my-lg-0">
@@ -90,9 +90,9 @@
                   Pressing it links to the search results page 
                   --> 
               <input class="form-control mr-2 my-2 my-sm-0" type="search" placeholder="Search" aria-label="Search">
-              <a class="btn btn-secondary my-2 my-sm-0" href="search.html" role="button">search</a>
+              <a class="btn btn-secondary my-2 my-sm-0" href="search.php" role="button">search</a>
               <!-- Search by geo-location button -->
-              <a class="btn btn-primary ml-2" href="search.html" id="testing" role="button">search by geo-location</a>
+              <a class="btn btn-primary ml-2" href="retrieve_data.php" id="testing" role="button">search by geo-location</a>
             </div>
           </form>
         </div>
@@ -124,7 +124,7 @@
           <div class="review-data">
             <h2 class="card-title pt-2"><strong><i>Bento Sushi</i></strong></h2>
             <h6 class="card-subtitle mb-2 text-muted"><i>Average Rating: 4.5 / 5</i></h6>
-            <p class="card-text">Bento Sushi is North America’s second largest sushi brand providing the highest quality packaged sushi and ready to heat/made to order hot Asian food.</p><a href="individual_sample.html" class="btn btn-dark rounded-lg">Info</a>
+            <p class="card-text">Bento Sushi is North America’s second largest sushi brand providing the highest quality packaged sushi and ready to heat/made to order hot Asian food.</p><a href="individual_sample.php" class="btn btn-dark rounded-lg">Info</a>
           </div>
         </div>
         <div class="card shadow-lg p-3 mb-5 bg-white rounded-lg">
@@ -132,7 +132,7 @@
           <div class="review-data">
             <h2 class="card-title pt-2"><strong><i>Bento Sushi</i></strong></h2>
             <h6 class="card-subtitle mb-2 text-muted"><i>Average Rating: 4.5 / 5</i></h6>
-            <p class="card-text">Bento Sushi is North America’s second largest sushi brand providing the highest quality packaged sushi and ready to heat/made to order hot Asian food.</p><a href="individual_sample.html" class="btn btn-dark rounded-lg">Info</a>
+            <p class="card-text">Bento Sushi is North America’s second largest sushi brand providing the highest quality packaged sushi and ready to heat/made to order hot Asian food.</p><a href="individual_sample.php" class="btn btn-dark rounded-lg">Info</a>
           </div>
         </div>
       </div>
@@ -143,7 +143,7 @@
           <div class="review-data">
             <h2 class="card-title pt-2"><strong><i>Bento Sushi</i></strong></h2>
             <h6 class="card-subtitle mb-2 text-muted"><i>Average Rating: 4.5 / 5</i></h6>
-            <p class="card-text">Bento Sushi is North America’s second largest sushi brand providing the highest quality packaged sushi and ready to heat/made to order hot Asian food.</p><a href="individual_sample.html" class="btn btn-dark rounded-lg">Info</a>
+            <p class="card-text">Bento Sushi is North America’s second largest sushi brand providing the highest quality packaged sushi and ready to heat/made to order hot Asian food.</p><a href="individual_sample.php" class="btn btn-dark rounded-lg">Info</a>
           </div>
         </div>
         <div class="card shadow-lg p-3 mb-5 bg-white rounded-lg">
@@ -151,7 +151,7 @@
           <div class="review-data">
             <h2 class="card-title pt-2"><strong><i>Bento Sushi</i></strong></h2>
             <h6 class="card-subtitle mb-2 text-muted"><i>Average Rating: 4.5 / 5</i></h6>
-            <p class="card-text">Bento Sushi is North America’s second largest sushi brand providing the highest quality packaged sushi and ready to heat/made to order hot Asian food.</p><a href="individual_sample.html" class="btn btn-dark rounded-lg">Info</a>
+            <p class="card-text">Bento Sushi is North America’s second largest sushi brand providing the highest quality packaged sushi and ready to heat/made to order hot Asian food.</p><a href="individual_sample.php" class="btn btn-dark rounded-lg">Info</a>
           </div>
         </div>
       </div>
@@ -162,7 +162,7 @@
           <div class="review-data">
             <h2 class="card-title pt-2"><strong><i>Bento Sushi</i></strong></h2>
             <h6 class="card-subtitle mb-2 text-muted"><i>Average Rating: 4.5 / 5</i></h6>
-            <p class="card-text">Bento Sushi is North America’s second largest sushi brand providing the highest quality packaged sushi and ready to heat/made to order hot Asian food.</p><a href="individual_sample.html" class="btn btn-dark rounded-lg">Info</a>
+            <p class="card-text">Bento Sushi is North America’s second largest sushi brand providing the highest quality packaged sushi and ready to heat/made to order hot Asian food.</p><a href="individual_sample.php" class="btn btn-dark rounded-lg">Info</a>
           </div>
         </div>
         <div class="card shadow-lg p-3 mb-5 bg-white rounded-lg">
@@ -170,7 +170,7 @@
           <div class="review-data">
             <h2 class="card-title pt-2"><strong><i>Bento Sushi</i></strong></h2>
             <h6 class="card-subtitle mb-2 text-muted"><i>Average Rating: 4.5 / 5</i></h6>
-            <p class="card-text">Bento Sushi is North America’s second largest sushi brand providing the highest quality packaged sushi and ready to heat/made to order hot Asian food.</p><a href="individual_sample.html" class="btn btn-dark rounded-lg">Info</a>
+            <p class="card-text">Bento Sushi is North America’s second largest sushi brand providing the highest quality packaged sushi and ready to heat/made to order hot Asian food.</p><a href="individual_sample.php" class="btn btn-dark rounded-lg">Info</a>
           </div>
         </div>
       </div>
