@@ -8,21 +8,18 @@
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
       }
-    // need to store the geolocation decimals for more precision 
+    /// will need to figure out the user when theyre logged in for cookies 
     if ($_SERVER["REQUEST_METHOD"] == "POST"){ 
-        $name = $_POST['name'];
-        $loc = $_POST['custom-file-loc'];
-        $food = $_POST['custom-file-food'];
-        $descr = $_POST['anothertry'];
-        $llat = $_REQUEST['sub-lat'];
-        $llong = $_REQUEST['sub-long'];     
-        $sql = "INSERT INTO submission VALUES ('$name', '$loc', '$food', '$descr', '$llat', '$llong')";
+        $name = 'temp';
+        $rating = $_REQUEST['rating'];
+        $review = $_REQUEST['anothertry'];     
+        $sql = "INSERT INTO reviews VALUES ('$remail', '$loc', '$rating', '$anothertry')";
         if ($conn->query($sql) === TRUE) {
             echo "New record created successfully";
           } else {
             echo "Error: " . $sql . "<br>" . $conn->error;
           } 
     }
-    header("Location: index.php");
+    header("Location: individual_sample.php");
     $conn->close(); 
 ?> 

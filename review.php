@@ -11,7 +11,7 @@
     if ($_SERVER["REQUEST_METHOD"] == "POST"){ 
         $review = $_POST['anothertry'];
         $rating = $_POST['rating'];
-        $email = $_POST['password'];
+        //$email = $_POST['password'];
         $sql = "INSERT INTO reviews VALUES ('John', '$loc', '$rating', '$review')";
         if ($conn->query($sql) === TRUE) {
             echo "New record created successfully";

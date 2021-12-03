@@ -1,7 +1,5 @@
 <?php
-session_start();
-include_once("individual.php");
-require 'login_data.php';
+    include_once("login_data.php");
 ?>
 <!doctype html>
 <!-- This line contains the prefix that allow Open Graph to be implemented -->
@@ -44,9 +42,9 @@ require 'login_data.php';
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <!-- Enabling the js functionality as well as animations -->  
-    <script src="script.js" defer></script>
+    <script src="reg-script.js" defer></script>
     <script src="anim.js" defer></script>
-    <!-- Imported animate.css -->  
+    <!-- Importing animate.css -->  
     <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
@@ -101,108 +99,51 @@ require 'login_data.php';
             </div>
           </div>
         </nav>
-  <!-- 
-    This is the container for the restaurant object form
-    The elements in this container are divided using the grid system of boostrap 
-    There are various uses of bootstrap padding and margin adjustments with the classes 
-    -->   
-  <div class="results-container pt-5">
-    <div class="d-flex mt-5 justify-content-center">
-      <div class="col-md-6">
-        <!-- Show the form within a card --> 
-        <div class="card shadow-lg p-3 mb-5 bg-white rounded-lg">
-          <!-- Header for the entire page -->
-          <h2 class="name-header text-center pt-3"><strong><i><?php echo $result_array_description['location']?> </i></strong></h2>
-          <hr>
-          <!-- Implement the map screenshot using bootstrap, provides responsive scaling using 'image-fluid' -->
+      <!-- 
+        This is the container for the registration form
+        The elements in this container are divided using the grid system of boostrap 
+        It provides responsive resizing of the contents within
+        There are various uses of bootstrap padding and margin adjustments with the classes 
+        --> 
+        
+      <div class="form-container pt-5"> 
+        <div class="d-flex mt-5 justify-content-center">
+          <div class="col-auto">
+              <!-- Show the form within a card --> 
+              <div class="card shadow-lg p-3 mb-5 bg-white rounded-lg">
+                <!-- Header for the entire page --> 
+                <h2 class="location-header text-center pt-3 pb-3"><strong>Please login </strong></h2>
+                <!-- Form container to contain all the forms --> 
+                <form id="registration" class="needs-validation" method="post" action="login_data.php">
+                    <hr/>
+                    <div class="row justify-content-center">
+                      <!-- Email form using bootstraps prepend to show the '@' in a nicer format --> 
+                      <label class="pt-1" >Email: </label>
+                      <div class="input-group mb-1 col-auto">
+                        <input type="text" class="form-control" id="email" name="email" placeholder="Email@email.com" aria-label="Email" required>
+                      </div>
+                      <label class="pt-1" >Password: </label>
+                      <div class="input-group mb-1 col-auto">
+                      <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+                      </div>
+                      </div>
+                          <!-- Button to submit and link back to the homepage --> 
+                          <div class="row justify-content-center p-3">
+                          <button type="submit" class="btn btn-primary">Submit</button>
+                          </div>
+                        </div>  
+                    </div> 
+                    <!-- Header for the address --> 
 
-
-
-          <div class="d-flex mt-5 justify-content-center align-items-center pb-5"> 
-            <div style="height: 300px; width: 400px" id="map"></div>
-          </div>
-          <!-- Implement schema place microdata within this div section -->
-          <div itemscope itemtype="https://schema.org/Place">
-            <!-- Sample description of the restaurant, implementing 'description' for schema -->
-            <div itemprop="description" class="row pt-2 px-1 pt-4 pr-3 pl-3 text-center justify-content-center">
-              <p><?php echo $result_array_description['description'] ?></p>
-            </div>
-            <hr>
-            <!-- Container for the location -->
-            <div class="row g-5 pt-2 px-1">
-              <div class="col-md-3">
-                <h4 class="location-header"><strong>Location:</strong></h4>
+                </form>
               </div>
-              <!-- Sample location of the restaurant, implementing 'address' for schema -->
-              <div itemprop="address" class="col-md-8 pt-1 align-items-left">
-                <p><?php echo $result_array_description['loc_lat'] ?>, <?php echo $result_array_description['loc_long'] ?> </p>
-              </div>
-            </div>
-            <hr>
-            <h3 class="name-header text-center pt-3"><strong>User submitted videos</strong></h3>
-            <!-- php5 implementation of video submissions -->
-            <div class="row justify-content-center pb-3">
-              <video class="p-3" width="320" height="240" controls=""><source src="videos/bento.mp4" type="video/mp4"></video> 
-              <video class="p-3" width="320" height="240" controls=""><source src="videos/bento.mp4" type="video/mp4"></video>
-            </div>
-          </div>
-          <hr>
-          <!-- Implement schema review microdata within this div section -->
-          <div itemscope itemtype="https://schema.org/Review">
-            <h3 class="name-header text-center pb-2 pt-3"><strong>Reviews and Ratings</strong></h3>
-            <!-- Sample average review of the restaurant, implementing 'aggregateRating' for schema -->
-            <h5 itemprop="aggregateRating" class="name-header text-center"><i>AVG: <?php echo $result_avg ?> / 5</i></h5>
-            <!-- Implement the review list using bootstrap media, which provides responsive resizing and better formatting -->
-            <ul class="list-unstyled">
-              <!-- There are multiple sample reviews and ratings (ones without comments) hardcoded in this section -->
-              <?php 
-                while($row = $result_2->fetch_assoc() ) { ?>
-                <li class="media my-3">
-                <!-- Each reviewer has a placeholder face image, implemented using bootsrap -->
-                  <img class="mr-5 ml-1 align-self-center" src="images/placeholder.png" alt="...">
-                  <div class="media-body">
-                    <!-- Each reviewer has a name, rating and sometimes may have comments submitted -->
-                    <h5 itemprop="author" class="mt-0 mb-1"><?php echo $row['remail']; ?></h5>
-                    <h6 itemprop="reviewRating" class="mt-0 mb-1 text-muted"><?php echo $row['rating']; ?> / 5.00</h6><span itemprop="reviewBody"><?php echo $row['review']; ?></span>
-                  </div>
-                </li>
-              <?php } ?>
-            </ul>
-
-            
-
-            <?php if ($_SESSION['valid']) { ?>
-              <hr>
-              <form class="needs-validation" method="post" action="review.php">
-              <div class="form-group col-auto justify-content-center">
-                  <label class="form-label">Enter a rating out of 5:</label> 
-                  <!-- Each of the forms that need validation contain the 'required' tag -->  
-                  <input type="text" class="form-control has-validation" name="rating" id="rating" placeholder="Rating" required>
-              </div>
-              <div class="row justify-content-center m-4">
-                <label>Submit your own review:</label> 
-                <textarea class="form-control" rows="3" name="anothertry" id="anothertry" required></textarea>
-              <button class="btn btn-primary m-4" href="review.php" type="submit">Submit review</button> 
-              </div>
-            </form> 
-            <?php } ?>
-
-
-
           </div>
         </div>
       </div>
-    </div>
-  </div>
-  <!-- 
+    <!-- 
       Added JS plugin to the end to improve performance (as per bootstrap recommendation) 
       Only here to enable the togglebar menu in the navbar to collapse while in responsive mode 
-      Also added the google map api which calls initMapIndividual as to initialize on this page
-  -->   
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous"></script>
-  <script
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCosFB-HC5f7kzHfNO5jBLU_k9mFeiFc8&callback=initMapIndividual&v=weekly&channel=2"
-  async
-  ></script>
-</body>
+    -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous"></script> 
+  </body>
 </html>
