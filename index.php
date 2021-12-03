@@ -1,4 +1,5 @@
 <?php
+  include_once("index_data.php");
   require 'login_data.php';
 ?> 
 
@@ -126,74 +127,29 @@
     -->   
   <div class="object-container text-center pt-5">
     <!-- Header for the entire page -->
-    <h2 class="card-title pt-5"><strong><i>FEATURED LOCATIONS</i></strong></h2>
+    <h2 class="card-title pt-5"><strong><i>MOST RECENT ADDITIONS</i></strong></h2>
   <!-- 
     The grid is divided into one row and three column groups 
     It spaces out the columns depending on the width of the page 
     I have hardcoded 6 entries into the grid system to display
     Generally it's a single column on mobile, and three columns on mid and large 
     -->   
-    <div class="row m-5">
+    
       <!-- Beginning of first column group -->
-      <div class="col-md-4">
-        <!-- Show each form within a card --> 
-        <div class="card shadow-lg p-3 mb-5 bg-white rounded-lg">
-          <!-- Implement the restaurant picture using bootstrap, provides responsive scaling using 'image-fluid' -->
-          <img src="images/place.jpg" class="shadow-sm img-fluid rounded-lg mb-2" alt="place">
-          <!-- Container to display the name, avg rating, and a short descr. of each restaurant -->
+
+
+      <?php 
+        while($row = $result->fetch_assoc() ) { ?>
+        <div class="row m-5">
+        <div class="card shadow-lg p-3 mb-5 bg-white rounded-lg col-auto">
+          <img src="images/place.jpg" class="shadow-sm img-fluid rounded-lg mb-2 img-thumbnail" alt="place">
           <div class="review-data">
-            <h2 class="card-title pt-2"><strong><i>Bento Sushi</i></strong></h2>
-            <h6 class="card-subtitle mb-2 text-muted"><i>Average Rating: 4.5 / 5</i></h6>
-            <p class="card-text"><?php echo $_SESSION['user']; ?> </p><a href="individual_sample.php" class="btn btn-dark rounded-lg">Info</a>
-          </div>
-        </div>
-        <div class="card shadow-lg p-3 mb-5 bg-white rounded-lg">
-          <img src="images/place.jpg" class="shadow-sm img-fluid rounded-lg mb-2" alt="place">
-          <div class="review-data">
-            <h2 class="card-title pt-2"><strong><i>Bento Sushi</i></strong></h2>
-            <h6 class="card-subtitle mb-2 text-muted"><i>Average Rating: 4.5 / 5</i></h6>
-            <p class="card-text">Bento Sushi is North America’s second largest sushi brand providing the highest quality packaged sushi and ready to heat/made to order hot Asian food.</p><a href="individual_sample.php" class="btn btn-dark rounded-lg">Info</a>
+            <h2 class="card-title pt-2"><strong><i><?php echo $row['location'] ?></i></strong></h2>
+            <p class="card-text"><?php echo $row['description'] ?></p><a href="individual_sample.php" class="btn btn-dark rounded-lg">Info</a>
           </div>
         </div>
       </div>
-      <!-- Beginning of second column group, with the same formatting as above -->
-      <div class="col-md-4">
-        <div class="card shadow-lg p-3 mb-5 bg-white rounded-lg">
-          <img src="images/place.jpg" class="shadow-sm img-fluid rounded-lg mb-2" alt="place">
-          <div class="review-data">
-            <h2 class="card-title pt-2"><strong><i>Bento Sushi</i></strong></h2>
-            <h6 class="card-subtitle mb-2 text-muted"><i>Average Rating: 4.5 / 5</i></h6>
-            <p class="card-text">Bento Sushi is North America’s second largest sushi brand providing the highest quality packaged sushi and ready to heat/made to order hot Asian food.</p><a href="individual_sample.php" class="btn btn-dark rounded-lg">Info</a>
-          </div>
-        </div>
-        <div class="card shadow-lg p-3 mb-5 bg-white rounded-lg">
-          <img src="images/place.jpg" class="shadow-sm img-fluid rounded-lg mb-2" alt="place">
-          <div class="review-data">
-            <h2 class="card-title pt-2"><strong><i>Bento Sushi</i></strong></h2>
-            <h6 class="card-subtitle mb-2 text-muted"><i>Average Rating: 4.5 / 5</i></h6>
-            <p class="card-text">Bento Sushi is North America’s second largest sushi brand providing the highest quality packaged sushi and ready to heat/made to order hot Asian food.</p><a href="individual_sample.php" class="btn btn-dark rounded-lg">Info</a>
-          </div>
-        </div>
-      </div>
-      <!-- Beginning of third column group, with the same formatting as above again -->
-      <div class="col-md-4">
-        <div class="card shadow-lg p-3 mb-5 bg-white rounded-lg">
-          <img src="images/place.jpg" class="shadow-sm img-fluid rounded-lg mb-2" alt="place">
-          <div class="review-data">
-            <h2 class="card-title pt-2"><strong><i>Bento Sushi</i></strong></h2>
-            <h6 class="card-subtitle mb-2 text-muted"><i>Average Rating: 4.5 / 5</i></h6>
-            <p class="card-text">Bento Sushi is North America’s second largest sushi brand providing the highest quality packaged sushi and ready to heat/made to order hot Asian food.</p><a href="individual_sample.php" class="btn btn-dark rounded-lg">Info</a>
-          </div>
-        </div>
-        <div class="card shadow-lg p-3 mb-5 bg-white rounded-lg">
-          <img src="images/place.jpg" class="shadow-sm img-fluid rounded-lg mb-2" alt="place">
-          <div class="review-data">
-            <h2 class="card-title pt-2"><strong><i>Bento Sushi</i></strong></h2>
-            <h6 class="card-subtitle mb-2 text-muted"><i>Average Rating: 4.5 / 5</i></h6>
-            <p class="card-text">Bento Sushi is North America’s second largest sushi brand providing the highest quality packaged sushi and ready to heat/made to order hot Asian food.</p><a href="individual_sample.php" class="btn btn-dark rounded-lg">Info</a>
-          </div>
-        </div>
-      </div>
+      <?php } ?>
     </div>
   </div>
   <!-- 
