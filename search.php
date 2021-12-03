@@ -124,9 +124,9 @@ include_once("retrieve_data.php");
                 <!-- Headers for the table -->
                 <tr>
                   <th scope="col">Location</th>
-                  <th scope="col">Lat</th>
-                  <th scope="col">Long</th>
-                  <th scope="col">Info</th>
+                  <th scope="col">Latitude</th>
+                  <th scope="col">Longitude</th>
+                  <th scope="col">Information</th>
                 </tr>
               </thead>
               <tbody>

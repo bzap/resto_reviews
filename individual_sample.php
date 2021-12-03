@@ -110,7 +110,7 @@ include_once("individual.php");
         <!-- Show the form within a card --> 
         <div class="card shadow-lg p-3 mb-5 bg-white rounded-lg">
           <!-- Header for the entire page -->
-          <h2 class="name-header text-center pt-3"><strong><i>Bento Sushi</i></strong></h2>
+          <h2 class="name-header text-center pt-3"><strong><i><?php echo $result_array_description['location']?> </i></strong></h2>
           <hr>
           <!-- Implement the map screenshot using bootstrap, provides responsive scaling using 'image-fluid' -->
 
@@ -123,7 +123,7 @@ include_once("individual.php");
           <div itemscope itemtype="https://schema.org/Place">
             <!-- Sample description of the restaurant, implementing 'description' for schema -->
             <div itemprop="description" class="row pt-2 px-1 pt-4 pr-3 pl-3 text-center justify-content-center">
-              <p>Bento Sushi is North America’s second largest sushi brand providing the highest quality packaged sushi and ready to heat/made to order hot Asian food.</p>
+              <p><?php echo $result_array_description['description'] ?></p>
             </div>
             <hr>
             <!-- Container for the location -->
@@ -133,7 +133,7 @@ include_once("individual.php");
               </div>
               <!-- Sample location of the restaurant, implementing 'address' for schema -->
               <div itemprop="address" class="col-md-8 pt-1 align-items-left">
-                <p>751 Upper James St, Hamilton, ON L9C 3A1</p>
+                <p><?php echo $result_array_description['loc_lat'] ?>, <?php echo $result_array_description['loc_long'] ?> </p>
               </div>
             </div>
             <hr>
@@ -149,7 +149,7 @@ include_once("individual.php");
           <div itemscope itemtype="https://schema.org/Review">
             <h3 class="name-header text-center pb-2 pt-3"><strong>Reviews and Ratings</strong></h3>
             <!-- Sample average review of the restaurant, implementing 'aggregateRating' for schema -->
-            <h5 itemprop="aggregateRating" class="name-header text-center"><i>AVG: 4.5 / 5</i></h5>
+            <h5 itemprop="aggregateRating" class="name-header text-center"><i>AVG: <?php echo $result_avg ?> / 5</i></h5>
             <!-- Implement the review list using bootstrap media, which provides responsive resizing and better formatting -->
             <ul class="list-unstyled">
               <!-- There are multiple sample reviews and ratings (ones without comments) hardcoded in this section -->
@@ -169,7 +169,7 @@ include_once("individual.php");
 
             <hr>
             <form class="needs-validation" method="post" action="review.php">
-              <div class="form-group col-4 justify-content-center">
+              <div class="form-group col-auto justify-content-center">
                   <label class="form-label">Enter a rating out of 5:</label> 
                   <!-- Each of the forms that need validation contain the 'required' tag -->  
                   <input type="text" class="form-control has-validation" name="rating" id="rating" placeholder="Rating" required>
