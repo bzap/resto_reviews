@@ -144,7 +144,7 @@
           <div class="review-data">
             <h2 class="card-title pt-2"><strong><i>Bento Sushi</i></strong></h2>
             <h6 class="card-subtitle mb-2 text-muted"><i>Average Rating: 4.5 / 5</i></h6>
-            <p class="card-text"><?php echo $_SESSION['valid']; ?> </p><a href="individual_sample.php" class="btn btn-dark rounded-lg">Info</a>
+            <p class="card-text"><?php echo $_SESSION['user']; ?> </p><a href="individual_sample.php" class="btn btn-dark rounded-lg">Info</a>
           </div>
         </div>
         <div class="card shadow-lg p-3 mb-5 bg-white rounded-lg">

@@ -1,5 +1,4 @@
 <?php
-session_start();
 include_once("individual.php");
 require 'login_data.php';
 ?>
@@ -182,7 +181,8 @@ require 'login_data.php';
               <div class="row justify-content-center m-4">
                 <label>Submit your own review:</label> 
                 <textarea class="form-control" rows="3" name="anothertry" id="anothertry" required></textarea>
-              <button class="btn btn-primary m-4" href="review.php" type="submit">Submit review</button> 
+                <input type="hidden" id="loc_in" name="loc_in" value="<?php echo $_GET['loc']?>" />
+              <button class="btn btn-primary m-4" href="review.php"  name="sub_button" type="submit">Submit review</button> 
               </div>
             </form> 
             <?php } ?>

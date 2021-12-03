@@ -24,6 +24,6 @@
             echo "Error: " . $sql . "<br>" . $conn->error;
           } 
     }
-   //header("Location: index.html");
+    header("Location: index.php");
     $conn->close(); 
 ?> 
