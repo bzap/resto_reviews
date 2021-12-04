@@ -1,3 +1,4 @@
+<!-- Include the data for logging in -->
 <?php
     include_once("login_data.php");
 ?>
@@ -116,12 +117,11 @@
       </div>
     </nav>
       <!-- 
-        This is the container for the registration form
+        This is the container for the login form
         The elements in this container are divided using the grid system of boostrap 
         It provides responsive resizing of the contents within
         There are various uses of bootstrap padding and margin adjustments with the classes 
-        --> 
-        
+        -->     
       <div class="form-container pt-5"> 
         <div class="d-flex mt-5 justify-content-center">
           <div class="col-auto">
@@ -130,10 +130,11 @@
                 <!-- Header for the entire page --> 
                 <h2 class="location-header text-center pt-3 pb-3"><strong>Please login </strong></h2>
                 <!-- Form container to contain all the forms --> 
+                <!-- This form submits the data using login_data.php and the post method --> 
                 <form id="registration" class="needs-validation" method="post" action="login_data.php">
                     <hr/>
                     <div class="row justify-content-center">
-                      <!-- Email form using bootstraps prepend to show the '@' in a nicer format --> 
+                      <!-- Login form using email and password --> 
                       <label class="pt-1" >Email: </label>
                       <div class="input-group mb-1 col-auto">
                         <input type="text" class="form-control" id="email" name="email" placeholder="Email@email.com" aria-label="Email" required>

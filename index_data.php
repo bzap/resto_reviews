@@ -1,9 +1,5 @@
 <?php
-    // check if search was done by geolocation or by search form and then retrieve the right data based on that 
-    // and populate the table with it 
-    // need to link the review data here and retrieve it as well 
-
-    echo '<script>console.log("test1")</script>';
+    // connect to the db 
     $server = "localhost";
     $username = "root";
     $password = "";
@@ -12,12 +8,10 @@
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
       }
-
-    // and add the constraints to this query later 
+    // get the name of the restaurant and the description 
     $sql = "SELECT location, description FROM submission";
-    
+    // store the result of the query 
     $result = mysqli_query($conn, $sql); 
-
-
+    // close the connection 
     $conn->close(); 
 ?> 

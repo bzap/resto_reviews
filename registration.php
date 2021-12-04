@@ -1,7 +1,7 @@
+<!-- Include the data for logging in -->
 <?php
     include_once("login_data.php");
 ?>
-
 <!doctype html>
 <!-- This line contains the prefix that allow Open Graph to be implemented -->
 <html lang="en" prefix="og: https://ogp.me/ns#">
@@ -121,7 +121,6 @@
         It provides responsive resizing of the contents within
         There are various uses of bootstrap padding and margin adjustments with the classes 
         --> 
-        
       <div class="form-container pt-5"> 
         <div class="d-flex mt-5 justify-content-center">
           <div class="col-auto">
@@ -130,6 +129,7 @@
                 <!-- Header for the entire page --> 
                 <h2 class="location-header text-center pt-3 pb-3"><strong>Registration Form </strong></h2>
                 <!-- Form container to contain all the forms --> 
+                <!-- This form submits the data using save_data.php and the post method --> 
                 <form id="registration" method="post" action="save_data.php">
                     <h4 class="location-header text-center pt-3">Account Details: </h4>
                     <hr/>
@@ -144,7 +144,6 @@
                     </div> 
                     <div class="error text-danger text-center"></div> 
                     <div class="error text-danger text-center"></div> 
-                    
                     <!-- Password form  --> 
                     <div class="row justify-content-center mt-4">
                       <label class="pt-2" >Password: </label>

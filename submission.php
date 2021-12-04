@@ -128,6 +128,7 @@
           <!-- Header for the enitre page --> 
           <h2 class="align-self-center pt-3 pb-4"><strong>Submit a new location:</strong></h2>
           <!-- Form container for all of the forms, has the 'needs-validation' tag for form validation --> 
+          <!-- This form submits the data using save_submission.php and the post method --> 
           <form class="needs-validation" method="post" action="save_submission.php">
             <div class="row justify-content-center text-center">
               <!-- Location form --> 

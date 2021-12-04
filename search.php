@@ -1,23 +1,27 @@
 <?php
+    // start the session
     session_start();
+    // include the data for logging in 
     include_once("login_data.php");
-    echo '<script>console.log("test1")</script>';
+    // connect to the db
     $server = "localhost";
     $username = "root";
     $password = "";
     $db_name = "resto";
     $conn = mysqli_connect($server, $username, $password, $db_name);
+    // prepare the query if it's a geolocation request
     $sql = "SELECT location, loc_lat, loc_long FROM submission";
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
       }
-    
+    // check for values specfic to the post method, in this case from the search button 
     if ($_SERVER["REQUEST_METHOD"] == "POST"){ 
+        // get the search input 
         $search = $_POST["search_val"];
-        echo $search;
-        echo "post";
+        // prepare the query to search for locations similar to the search term
         $sql = "SELECT location, loc_lat, loc_long FROM submission WHERE location LIKE '%$search%'";
     }
+    // submit the query to the db 
     $result = mysqli_query($conn, $sql); 
 ?>
 

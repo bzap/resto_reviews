@@ -4,34 +4,38 @@ aleknevl, 400026706
 http://3.23.201.7/
 https://github.com/bzap/resto_reviews
 
-Included are five html files: 
 
-index.html -> The homepage displaying restaurants 
-search.html -> Showing search results when pressing search in the navbar
-registration.html -> The registration page 
-individual_sample -> A sample individual restaurant. Can be accessed by pressing 'Info' in index.html or by pressing 'Info' from search.html
-submission.html -> The submission page
+Submitting a new location and reviewing a location will not show up until the user is logged in. 
 
-
-Also included are four js files: 
-
-script.js -> General map and button implementation 
-sub-script.js -> Specfic to the submission page, and handles getting geo-location on button press 
-reg-script.js -> Specific to the registration page and handes the form validation and animation  
-anim.js -> Handles the fade animation on all pages 
+A sample use case scenario using the given data: 
+>Press log-in on the nav, and log in as jimmy with a password of 123123
+>Either search for a total list with the geolocation button or enter a search term 
+>For this scenario, search 'sushi', and two sushi places will show up
+>Open the info page of Bento Sushi, and there should be three different reviews from other users as well as a review box 
+>Or press submit, and submit a new location to show up in the results 
 
 
-For submission requirements: 
+resto.sql is an export of a sample db used for MySQL
 
-Search form -> There is a 'search by geo-location' button found on the navbar at the top of every page
-Sample results page -> There is a google map with markers found in search.html, handled by script.js 
-                    -> There are sample results hardcoded in search.html 
-Sample object -> There is a google map  with a marker found in individual_sample.html, handled by script.js 
-              -> There are sample reviews and ratings hardcoded 
-Object submission page -> There is a geo-location button found in submission.html, handled sub-script.js 
-                       -> There is HTML form validation found in submission.html 
-User registration page -> There is JS form validation on button press found in registration.js, handled by reg-script.js 
-Animation -> Found in various places (I commented in the JS files), handled by each script file
+All of the previous html files were renamed to php files. 
+
+Other new files for this part of the project: 
+login.php -> A simple login page for the website 
+login_data.php -> A component to verify the login details, and store the user session 
+logout.php -> A component to log the user out and destroy the session 
+review.php -> A component to submit the review score and description made by the user for the restaurant selected
+save_data.php -> A component to save the registration data of a user when signing up 
+save_submission.php -> A component to save the submission data when submitting a new location 
+individual.php -> A component to get the individual data of a restaurant once selected 
+index_data.php -> A component to get the restaurants submitted for the main page  
+search.php -> This is not new, but there is a new php component at the top to fetch search results based on term/geolocation
+
+Assumptions: 
+For logging in, the first part of the email used to register, is the username. 
+	eg. if the registration email was jimmy@gmail.com, the username is jimmy
+
+For submitting an object, any file name in place of the images are used
+Due to time constraints I didn't manage to show the results on the map when searching, instead they only get loaded into the table. I also didn't manage to load images from an S3 Bucket, so instead there are still placeholder images for each location. 
 
 
 Sushi image credits: Sushi Box Toronto, https://www.sushiboxonbay.com/

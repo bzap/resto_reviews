@@ -1,3 +1,4 @@
+<!-- Include the data for logging in, as well as submitting a review -->
 <?php
 require "individual.php";
 require 'login_data.php';
@@ -130,9 +131,6 @@ require 'login_data.php';
           <h2 class="name-header text-center pt-3"><strong><i><?php echo $result_array_description['location']?> </i></strong></h2>
           <hr>
           <!-- Implement the map screenshot using bootstrap, provides responsive scaling using 'image-fluid' -->
-
-
-
           <div class="d-flex mt-5 justify-content-center align-items-center pb-5"> 
             <div style="height: 300px; width: 400px" id="map"></div>
           </div>
@@ -169,7 +167,7 @@ require 'login_data.php';
             <h5 itemprop="aggregateRating" class="name-header text-center"><i>AVG: <?php echo $result_avg ?> / 5</i></h5>
             <!-- Implement the review list using bootstrap media, which provides responsive resizing and better formatting -->
             <ul class="list-unstyled">
-              <!-- There are multiple sample reviews and ratings (ones without comments) hardcoded in this section -->
+              <!-- This section loops through all of the rows, and displays each row within the table -->
               <?php 
                 while($row = $result_2->fetch_assoc() ) { ?>
                 <li class="media my-3">
@@ -183,9 +181,7 @@ require 'login_data.php';
                 </li>
               <?php } ?>
             </ul>
-
-            
-
+            <!-- This section displays the review form if the user is logged in -->
             <?php if ($_SESSION['valid']) { ?>
               <hr>
               <form class="needs-validation" method="post" action="review.php">
@@ -202,9 +198,6 @@ require 'login_data.php';
               </div>
             </form> 
             <?php } ?>
-
-
-
           </div>
         </div>
       </div>
