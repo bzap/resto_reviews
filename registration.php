@@ -1,3 +1,6 @@
+<?php
+    include_once("login_data.php");
+?>
 
 <!doctype html>
 <!-- This line contains the prefix that allow Open Graph to be implemented -->
@@ -54,49 +57,64 @@
         There are various uses of bootstrap padding and margin adjustments with the classes 
         --> 
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-          <!-- Provides a toggle bar in responsive mode to hide options --> 
-          <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#toggle-drop" aria-controls="toggle-drop" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-            <!-- I added a bootstrap icon next to the text and changed the typography --> 
-            <a class="navbar-brand bi-cup-straw" href="index.php"> <strong><i>RestoREVIEWS</i></strong></a>
-            <div class="collapse navbar-collapse" id="toggle-drop">
-              <!-- 
-                Navbar items that are shown on wider screens, and hidden behind the menu otherwise  
-                They each link to the respective php pages 
-                --> 
-              <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li class="nav-item">
-                  <a class="nav-link" href="registration.php">LOG-IN</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="registration.php">REGISTER</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="submission.php">SUBMIT</a>
-                </li>
+      <!-- Provides a toggle bar in responsive mode to hide options --> 
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#toggle-drop" aria-controls="toggle-drop" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- I added a bootstrap icon next to the text and changed the typography --> 
+        <a class="navbar-brand bi-cup-straw" href="index.php"> <strong><i>RestoREVIEWS</i></strong></a>
+        <div class="collapse navbar-collapse" id="toggle-drop">
+          <!-- 
+            Navbar items that are shown on wider screens, and hidden behind the menu otherwise  
+            They each link to the respective php pages 
+            --> 
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <!-- 
+            This php code checks the session variable to see if the user is logged in, and based on that shows the submission section and logging in/logging out
+            --> 
+          <?php 
+                if ($_SESSION['valid']) { ?>
+              <li class="nav-item">
+              <a class="nav-link" href="logout.php">LOG-OUT</a>
+            </li>
+            <?php } 
+            else{    ?>
+              <li class="nav-item">
+              <a class="nav-link" href="login.php">LOG-IN</a>
+            </li>            
+            <?php } ?>
+            <li class="nav-item">
+              <a class="nav-link" href="registration.php">REGISTER</a>
+            </li>
+            <?php 
+                if ($_SESSION['valid']) { ?>
+              <li class="nav-item">
+              <a class="nav-link" href="submission.php">SUBMIT</a>
+            </li>
+            <?php } ?>
+          </ul>
+          <form class="flex my-5 my-lg-0 " method="post" action="search.php">
+            <div class="input-group mr-2">
+              <!-- Dropdown button next to the search form to allow changing the filtering --> 
+              <button class="btn btn-secondary dropdown-toggle my-2 my-sm-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">Filter</button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Name</a></li>
+                <li><a class="dropdown-item" href="#">Rating</a></li>
               </ul>
-              <form class="flex my-5 my-lg-0">
-                <div class="input-group mr-2">
-                  <!-- Dropdown button next to the search form to allow changing the filtering --> 
-                  <button class="btn btn-secondary dropdown-toggle my-2 my-sm-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">Filter</button>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Name</a></li>
-                    <li><a class="dropdown-item" href="#">Rating</a></li>
-                  </ul>
-                  <!-- 
-                      Search button next to search form 
-                      Pressing it links to the search results page 
-                      --> 
-                  <input class="form-control mr-2 my-2 my-sm-0" type="search" placeholder="Search" aria-label="Search">
-                  <a class="btn btn-secondary my-2 my-sm-0" href="search.php" role="button">search</a>
-                  <a class="btn btn-primary ml-2" href="search.php" id="testing" role="button">search by geo-location</a>
-                </div>
-              </form>
+              <!-- 
+                  Search button next to search form 
+                  Pressing it links to the search results page 
+                  --> 
+              <input class="form-control" type="text" id="search_val" name="search_val" placeholder="Search" aria-label="Search">
+              <button class="btn btn-secondary" href="search.php" type="submit">Search</button>               
             </div>
-          </div>
-        </nav>
+          </form>
+          <!-- Search by geo-location button -->
+          <a class="btn btn-primary ml-2" href="search.php" id="testing" role="button">search by geo-location</a>
+        </div>
+      </div>
+    </nav>
       <!-- 
         This is the container for the registration form
         The elements in this container are divided using the grid system of boostrap 

@@ -1,8 +1,8 @@
+<!-- Include the data for logging in, as well as loading the restaurants from the server -->
 <?php
   include_once("index_data.php");
   require 'login_data.php';
 ?> 
-
 <!doctype html>
 <!-- This line contains the prefix that allow Open Graph to be implemented -->
 <hmtl lang="en" prefix="og: https://ogp.me/ns#">
@@ -72,20 +72,20 @@
             They each link to the respective php pages 
             --> 
           <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <!-- 
+            This php code checks the session variable to see if the user is logged in, and based on that shows the submission section and logging in/logging out
+            --> 
           <?php 
                 if ($_SESSION['valid']) { ?>
               <li class="nav-item">
               <a class="nav-link" href="logout.php">LOG-OUT</a>
             </li>
-
             <?php } 
             else{    ?>
               <li class="nav-item">
               <a class="nav-link" href="login.php">LOG-IN</a>
             </li>            
-
             <?php } ?>
-
             <li class="nav-item">
               <a class="nav-link" href="registration.php">REGISTER</a>
             </li>
@@ -94,9 +94,7 @@
               <li class="nav-item">
               <a class="nav-link" href="submission.php">SUBMIT</a>
             </li>
-
             <?php } ?>
-
           </ul>
           <form class="flex my-5 my-lg-0 " method="post" action="search.php">
             <div class="input-group mr-2">
@@ -111,9 +109,7 @@
                   Pressing it links to the search results page 
                   --> 
               <input class="form-control" type="text" id="search_val" name="search_val" placeholder="Search" aria-label="Search">
-              <button class="btn btn-secondary" href="search.php" type="submit">Search</button> 
-              
-              
+              <button class="btn btn-secondary" href="search.php" type="submit">Search</button>               
             </div>
           </form>
           <!-- Search by geo-location button -->
@@ -136,17 +132,17 @@
     I have hardcoded 6 entries into the grid system to display
     Generally it's a single column on mobile, and three columns on mid and large 
     -->   
-    
-      <!-- Beginning of first column group -->
-
-
+      <!-- This part loops through the return rows of restaurants and displays each one in its own card -->
       <?php 
+        // loop and fetch each result
         while($row = $result->fetch_assoc() ) { ?>
         <div class="row m-5">
         <div class="card shadow-lg p-3 mb-5 bg-white rounded-lg col-auto">
           <img src="images/place.jpg" class="shadow-sm img-fluid rounded-lg mb-2 img-thumbnail" alt="place">
           <div class="review-data">
+            <!--Get the location column and display it -->
             <h2 class="card-title pt-2"><strong><i><?php echo $row['location'] ?></i></strong></h2>
+             <!--Make the info button lead to the correct restaurant page -->
             <p class="card-text"><?php echo $row['description'] ?></p><a href="individual_sample.php?loc=<?php echo $row['location'] ?>" class="btn btn-dark rounded-lg">Info</a>
           </div>
         </div>
