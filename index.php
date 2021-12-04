@@ -98,7 +98,7 @@
             <?php } ?>
 
           </ul>
-          <form class="flex my-5 my-lg-0">
+          <form class="flex my-5 my-lg-0 " method="post" action="search.php">
             <div class="input-group mr-2">
               <!-- Dropdown button next to the search form to allow changing the filtering --> 
               <button class="btn btn-secondary dropdown-toggle my-2 my-sm-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">Filter</button>
@@ -110,12 +110,14 @@
                   Search button next to search form 
                   Pressing it links to the search results page 
                   --> 
-              <input class="form-control mr-2 my-2 my-sm-0" type="search" placeholder="Search" aria-label="Search">
-              <a class="btn btn-secondary my-2 my-sm-0" href="search.php" role="button">search</a>
-              <!-- Search by geo-location button -->
-              <a class="btn btn-primary ml-2" href="retrieve_data.php" id="testing" role="button">search by geo-location</a>
+              <input class="form-control" type="text" id="search_val" name="search_val" placeholder="Search" aria-label="Search">
+              <button class="btn btn-secondary" href="search.php" type="submit">Search</button> 
+              
+              
             </div>
           </form>
+          <!-- Search by geo-location button -->
+          <a class="btn btn-primary ml-2" href="search.php" id="testing" role="button">search by geo-location</a>
         </div>
       </div>
     </nav>
@@ -145,7 +147,7 @@
           <img src="images/place.jpg" class="shadow-sm img-fluid rounded-lg mb-2 img-thumbnail" alt="place">
           <div class="review-data">
             <h2 class="card-title pt-2"><strong><i><?php echo $row['location'] ?></i></strong></h2>
-            <p class="card-text"><?php echo $row['description'] ?></p><a href="individual_sample.php" class="btn btn-dark rounded-lg">Info</a>
+            <p class="card-text"><?php echo $row['description'] ?></p><a href="individual_sample.php?loc=<?php echo $row['location'] ?>" class="btn btn-dark rounded-lg">Info</a>
           </div>
         </div>
       </div>

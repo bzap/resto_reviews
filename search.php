@@ -1,5 +1,23 @@
 <?php
-include_once("retrieve_data.php");
+    session_start();
+    echo '<script>console.log("test1")</script>';
+    $server = "localhost";
+    $username = "root";
+    $password = "";
+    $db_name = "resto";
+    $conn = mysqli_connect($server, $username, $password, $db_name);
+    $sql = "SELECT location, loc_lat, loc_long FROM submission";
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+      }
+    
+    if ($_SERVER["REQUEST_METHOD"] == "POST"){ 
+        $search = $_POST["search_val"];
+        echo $search;
+        echo "post";
+        $sql = "SELECT location, loc_lat, loc_long FROM submission WHERE location LIKE '%$search%'";
+    }
+    $result = mysqli_query($conn, $sql); 
 ?>
 
 <!doctype html>
@@ -111,8 +129,10 @@ include_once("retrieve_data.php");
         <!-- Show the form within a card --> 
         <div class="card shadow-lg p-3 mb-5 bg-white rounded-lg">
           <!-- Header for the enitre page -->
-          <h2 class="text-center pt-2"><strong><i>Nearby results</i></strong></h2>
+          <h2 class="text-center pt-2"><strong><i><?php echo (isset($search)) ? ('Nearby results for: ' . $search) : 'Nearby Results:'; ?></i></strong></h2>
           <hr>
+
+          
           <!-- Implement the image using bootstrap, provides responsive scaling using 'image-fluid' -->
           <div class="d-flex mt-5 justify-content-center align-items-center pb-5"> 
             <div style="height: 300px; width: 400px" id="map"></div>
