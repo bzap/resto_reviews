@@ -1,14 +1,10 @@
-Linas Aleknevicius
-aleknevl, 400026706
-
-http://3.23.201.7/
-https://github.com/bzap/resto_reviews
+4WW3 Final Project 
 
 'resto' is the name of the database, and resto.sql is an export of sample data used for MySQL
 
 All of the previous html files were renamed to php files. 
 
-Other new files for this part of the project: 
+Other new files for part 3 of the project: 
 login.php -> A simple login page for the website 
 login_data.php -> A component to verify the login details, and store the user session 
 logout.php -> A component to log the user out and destroy the session 
